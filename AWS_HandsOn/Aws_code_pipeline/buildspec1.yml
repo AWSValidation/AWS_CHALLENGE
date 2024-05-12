@@ -4,8 +4,8 @@ phases:
     commands:
       - echo Logging in to Amazon ECR....
       - aws --version
-      #- $(aws ecr get-login --region us-east-1 --no-include-email)
-      -aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin 590183742881.public.ecr.aws/r1v5h6d5
+      - # $(aws ecr get-login --region us-east-1 --no-include-email)
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin 590183742881.public.ecr.aws/r1v5h6d5
       - # Replace with this to your repository URI
       - REPOSITORY_URI=590183742881.public.ecr.aws/r1v5h6d5/testaws
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
